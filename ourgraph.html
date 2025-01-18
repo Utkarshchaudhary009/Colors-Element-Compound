@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333333;
+            overflow-x: hidden;
+            background-color: #f9f9f9;
+            background-image: radial-gradient(circle at center, #e0f7fa, #ffffff);
+            background-size: 200% 200%;
+            animation: backgroundAnimation 10s infinite ease-in-out;
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                background-position: 100% 100%;
+            }
+
+            50% {
+                background-position: 0% 0%;
+            }
+
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+    </style>
+</head>
+
+<body onclick="toggleFullscreen()">
+
+
+    <canvas id="mistakeChart" width="400" height="200"></canvas>
+    <script src="./chart.js"></script>
+    <script>
+        // Load mistake data from localStorage
+        const mistakeData = JSON.parse(localStorage.getItem("mistakeTracker")) || {};
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+        // Prepare labels, data, and colors for the chart
+        const labels = Object.keys(mistakeData);
+        const data = labels.map(label => mistakeData[label].count);
+        const colors = labels.map(label => mistakeData[label].color);
+
+        // Create the chart
+        const ctx = document.getElementById("mistakeChart").getContext("2d");
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Mistakes',
+                    data: data,
+                    backgroundColor: colors,
+                    borderColor: colors.map(color => darkenColor(color, 0.2)),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Utility function to darken colors
+        function darkenColor(color, amount) {
+            let col = color.slice(1); // Remove #
+            let num = parseInt(col, 16);
+            let r = Math.max(0, (num >> 16) - amount * 255);
+            let g = Math.max(0, ((num >> 8) & 0x00FF) - amount * 255);
+            let b = Math.max(0, (num & 0x0000FF) - amount * 255);
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+    </script>
+</body>
+
+</html>

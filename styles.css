@@ -1,0 +1,254 @@
+/* General body styles */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333333;
+    overflow-x: hidden;
+    background-color: #f9f9f9;
+    background-image: radial-gradient(circle at center, #e0f7fa, #ffffff);
+    background-size: 200% 200%;
+    animation: backgroundAnimation 10s infinite ease-in-out;
+}
+
+@keyframes backgroundAnimation {
+    0% { background-position: 100% 100%; }
+    50% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+/* Game container */
+.game-container {
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+    text-align: center;
+}
+#score {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #2196f3;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Score Animation */
+@keyframes scoreAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+#score.animate {
+    animation: scoreAnimation 0.5s;
+}
+
+/* Header styles */
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #222222;
+    margin-bottom: 20px;
+}
+
+/* Difficulty buttons (flexible and free layout) */
+.difficulty-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.difficulty-buttons button {
+    font-size: 1rem;
+    padding: 12px 25px;
+    background-color: #f9f9f9;
+    border: 1px solid #dddddd;
+    border-radius: 25px;
+    color: #333333;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.difficulty-buttons button:hover {
+    background-color: #eaeaea;
+    transform: scale(1.05);
+}
+
+/* Progress bar container */
+/* Progress bar container */
+.progress-container {
+    position: relative;
+    width: calc(100% - 160px); /* Center with 80px margin on both sides */
+    height: 20px;
+    background-color: #f0f0f0; /* Light gray background */
+    border-radius: 10px;
+    margin: 20px auto;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border: 1px solid #ddd; /* Subtle border */
+}
+
+/* Progress bar fill */
+#progress-bar {
+    position: absolute;
+    height: 100%;
+    width: 0%; /* Initial width */
+    background: linear-gradient(90deg, #2196f3, #64b5f6); /* Smooth gradient */
+    border-radius: 10px;
+    transition: width 0.4s ease-in-out; /* Smooth animation */
+}
+
+
+/* Question styles */
+#question {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #333333;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Options container */
+#options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.option {
+    width: 15px 20px;
+    font-size: 1.1rem;
+    color: #444444;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.option:hover {
+    background-color: #e8e8e8;
+    transform: translateY(-5px);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Feedback */
+#feedback {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #444444;
+    margin: 20px 0;
+}
+
+/* Score display */
+#score {
+    font-size: 1.3rem;
+    color: #555555;
+    margin-top: 20px;
+}
+
+/* Footer navigation buttons */
+button {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 12px 25px;
+    background-color: #f9f9f9;
+    border: 1px solid #dddddd;
+    border-radius: 25px;
+    color: #333333;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: #eaeaea;
+    transform: scale(1.05);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    #question {
+        font-size: 1.5rem;
+    }
+
+    .option {
+        font-size: 1rem;
+        padding: 12px 15px;
+    }
+}
+
+
+/* Floating Action Button (FAB) */
+#fab {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #2196f3;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+#fab:hover {
+    transform: scale(1.1);
+}
+#timer {
+    font-size: 1.5em;
+    color: #333;
+    transition: color 0.5s ease;
+}
+
+/* Low Time Warning */
+#timer.low-time {
+    color: #f44336; /* Red when the time is running low */
+}
+/* Scoreboard Popup */
+#score-box {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    padding: 30px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+    animation: popupAnimation 0.5s ease-out;
+}
+
+/* Animation for Scoreboard Popup */
+@keyframes popupAnimation {
+    0% { opacity: 0; transform: translate(-50%, -60%); }
+    100% { opacity: 1; transform: translate(-50%, -50%); }
+}
+button:focus {
+    outline: 2px solid #84b9ee; /* Highlight focus for better accessibility */
+}
+
+.low-time {
+    color: red; /* Ensures time warning is noticeable */
+    font-weight: bold;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}

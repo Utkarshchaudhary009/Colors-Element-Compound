@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Color</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="game-container">
+        <h1>Guess the Color</h1>
+        <div class="difficulty-buttons">
+            <button onclick="startNewRound()">Start</button>
+            <!-- Floating Action Button -->
+            <div id="fab" onclick="reloadPage()">+</div>
+
+            <button onclick="toggleFullscreen()">Fullscreen</button>
+        </div>
+        <div class="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+
+
+        <div id="timer">Hope your Time is going good, Sir</div>
+        <div id="question">What is the color of your MOOD, Sir?</div>
+        <div id="options">
+            <!-- Options will be generated dynamically -->
+        </div>
+        <div id="feedback"></div>
+        <div id="score">Score: 0</div>
+        <!-- <div id="score-box"></div> Added score box element -->
+        <!-- Fact Card Container -->
+        <div id="fact-card"
+            style="visibility: hidden; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #2196f3; color: white; padding: 15px 30px; border-radius: 8px; box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); font-size: 1.2em;">
+        </div>
+
+        <audio id="correct-sound" src="correct.mp3"></audio>
+        <audio id="wrong-sound" src="wrong.mp3"></audio>
+        <audio id="timer-sound" src="timer.mp3"></audio>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
