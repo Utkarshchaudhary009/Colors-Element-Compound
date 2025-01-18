@@ -209,7 +209,7 @@ chartContainer.innerText = "Mistake Chart 😵";
 // Create an anchor element and set the href to your target URL
 const link = document.createElement("a");
 link.href = "https://utkarshchaudhary009.github.io/Colors-Element-Compound/ourgraph";
-link.target = "_blank";  // Optional: Open the link in a new tab
+//link.target = "_blank";  // Optional: Open the link in a new tab
 
 // Append the chartContainer to the anchor, and then append the anchor to the body
 link.appendChild(chartContainer);
@@ -235,7 +235,7 @@ githubLink.target = '_blank';
 
 githubLink.id = 'github-link';
 
-githubLink.textContent = 'Visit Our GitHub Repo';
+githubLink.textContent = 'Visit Our GitHub Repo 😎';
 
 
 
@@ -305,7 +305,7 @@ document.head.appendChild(style);
 
 githubLink.addEventListener('mouseover', function() {
 
-  this.title = "Click to visit the GitHub repository!"; // Tooltip text on hover
+  this.title = "Click to visit the GitHub repository! 🫣"; // Tooltip text on hover
 
 });
 
