@@ -183,7 +183,37 @@ scoreDisplay.style.zIndex = "1000";
 scoreDisplay.innerText = `High Score: ${highestScore}`;
 document.body.appendChild(scoreDisplay);
 // Function to display the user's level in the top-left corner
+// Create a new div element
+const chartContainer = document.createElement("div");
 
+// Define styles using a more structured approach
+const styles = {
+    position: "absolute",
+    top: "10px",
+    left: "30px",
+    padding: "10px",
+    backgroundColor: "#ffffff",
+    border: "2px solid #84d6ee",
+    borderRadius: "10px",
+    fontFamily: "Arial, sans-serif",
+    fontSize: "20px",
+    zIndex: "1000",
+};
+
+// Apply the styles to the element
+Object.assign(chartContainer.style, styles);
+
+// Set the inner text of the div
+chartContainer.innerText = "Mistake Chart 😵";
+
+// Create an anchor element and set the href to your target URL
+const link = document.createElement("a");
+link.href = "https://utkarshchaudhary009.github.io/Colors-Element-Compound/ourgraph";
+link.target = "_blank";  // Optional: Open the link in a new tab
+
+// Append the chartContainer to the anchor, and then append the anchor to the body
+link.appendChild(chartContainer);
+document.body.appendChild(link);
 // function displayUserLevel(level) {
 //     const levelDisplay = document.createElement('div');
 //     levelDisplay.style.position = 'absolute';
