@@ -214,6 +214,101 @@ link.target = "_blank";  // Optional: Open the link in a new tab
 // Append the chartContainer to the anchor, and then append the anchor to the body
 link.appendChild(chartContainer);
 document.body.appendChild(link);
+
+// Create the link container and set its properties
+
+const githubLinkContainer = document.createElement('div');
+
+githubLinkContainer.id = 'github-link-container';
+
+document.body.appendChild(githubLinkContainer);
+
+
+
+// Create the link element
+
+const githubLink = document.createElement('a');
+
+githubLink.href = 'https://github.com/Utkarshchaudhary009/';
+
+githubLink.target = '_blank';
+
+githubLink.id = 'github-link';
+
+githubLink.textContent = 'Visit Our GitHub Repo';
+
+
+
+// Append the link to the container
+
+githubLinkContainer.appendChild(githubLink);
+
+
+
+// Add the CSS styles using JavaScript
+
+const style = document.createElement('style');
+
+style.innerHTML = `
+
+  #github-link-container {
+
+    position: fixed; /* Fixes the link at the bottom left */
+
+    left: 20px; /* Adds some space from the left edge */
+
+    bottom: 40px; /* Adds space from the bottom */
+
+    z-index: 1000; /* Ensures the link stays on top */
+
+  }
+
+
+
+  #github-link {
+
+    background-color: #24292f; /* Dark background for the button */
+
+    color: white; /* White text */
+
+    font-size: 16px; /* Set the font size */
+
+    padding: 10px 20px; /* Add some padding */
+
+    border-radius: 5px; /* Round the corners */
+
+    text-decoration: none; /* Removes underline */
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow to make it stand out */
+
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+
+  }
+
+
+
+  #github-link:hover {
+
+    background-color: #0366d6; /* Change background on hover */
+
+    transform: translateY(-2px); /* Slightly lift the button on hover */
+
+  }
+
+`;
+
+document.head.appendChild(style);
+
+
+
+// Add a tooltip on hover
+
+githubLink.addEventListener('mouseover', function() {
+
+  this.title = "Click to visit the GitHub repository!"; // Tooltip text on hover
+
+});
+
 // function displayUserLevel(level) {
 //     const levelDisplay = document.createElement('div');
 //     levelDisplay.style.position = 'absolute';
