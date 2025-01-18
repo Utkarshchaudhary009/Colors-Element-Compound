@@ -22,7 +22,7 @@ body {
 .game-container {
     width: 100%;
     padding: 20px;
-    margin: 0 auto;
+    margin: 50 auto;
     text-align: center;
 }
 #score {
