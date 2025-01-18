@@ -19,6 +19,12 @@
             animation: backgroundAnimation 10s infinite ease-in-out;
         }
 
+#mistakeChart{
+            margin-top: 80px;
+            padding: 20px;
+            height: calc(100vh - 80px); /* Take up remaining space */
+        }
+    
         @keyframes backgroundAnimation {
             0% {
                 background-position: 100% 100%;
@@ -41,6 +47,49 @@
     <canvas id="mistakeChart" width="400" height="200"></canvas>
     <script src="./chart.js"></script>
     <script>
+// Create a back button element
+// Create a back button element
+const backButton = document.createElement("button");
+
+// Define styles for the button
+const styles = {
+    position: "absolute", // Position the button at the top
+    top: "10px", // Keep the button 10px from the top of the screen
+    left: "50%", // Center the button horizontally
+    transform: "translateX(-50%)", // Correctly center it by moving it back by 50% of its width
+    width: "90%", // Make the button width 90% of the screen
+    padding: "15px", // Add padding for better appearance
+    backgroundColor: "#4CAF50", // Button background color
+    color: "white", // Text color
+    fontFamily: "Arial, sans-serif", // Font family
+    fontSize: "18px", // Font size for readability
+    border: "none", // Remove default border
+    borderRadius: "5px", // Rounded corners
+    cursor: "pointer", // Change the cursor to a pointer on hover
+    textAlign: "center", // Center the text inside the button
+    zIndex: "1000", // Ensure it is above other elements
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", // Add a subtle shadow effect
+};
+
+// Apply the styles to the button
+Object.assign(backButton.style, styles);
+
+// Set the text for the back button
+backButton.innerText = "Back";
+
+// Add an event listener for the button click to navigate back
+backButton.addEventListener("click", function() {
+    window.history.back(); // Go back to the previous page
+});
+
+// Append the button to the body of the document
+document.body.appendChild(backButton);
+
+// Adjust the chart container to appear below the back button
+
+
+// Append the button to the body of the document
+document.body.appendChild(backButton);
         // Load mistake data from localStorage
         const mistakeData = JSON.parse(localStorage.getItem("mistakeTracker")) || {};
         function toggleFullscreen() {
