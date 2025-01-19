@@ -470,7 +470,7 @@ function startNewRound() {
         currentQuestionIndex = 0;
         loadQuestion();
     } else {
-        alert("No more questions available!");
+        alert("No more questions available!\n click on + button given below to start new round");
         showScorecard();
     }
 }
