@@ -257,7 +257,7 @@ style.innerHTML = `
 
     left: 20px; /* Adds some space from the left edge */
 
-    bottom: 40px; /* Adds space from the bottom */
+    bottom: 110px; /* Adds space from the bottom */
 
     z-index: 1000; /* Ensures the link stays on top */
 
